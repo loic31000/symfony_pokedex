@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un pokémon!{% endblock %}
+
+{% block body %}
+<div class="min-h-screen bg-red-500 p-6 font-sans text-white">
+<div class="flex justify-between items-center mb-6">
+<h1 class="text-2xl"> 
+            Nombres de pokémon : {{ nombrePokemons }}
+        </h1>
+    <a href="{{ path('app_index') }}" class="bg-green-500 hover:bg-green-600 px-6 py-2 rounded text-lg transition-colors">Accueil</a>
+</div>
+    
+     {{ form_start(form) }}
+
+        <div class="mb-4">
+            {{ form_widget(form.name,{ attr: { placeholder: "Nom", class : "w-sm bg-[#f3cdac] placeholder-white px-4 py-3 rounded-lg focus:outline-none text-lg"} }) }}
+        </div>
+        <div class="flex items-center gap-4">
+            <label class="text-xl" for="image_url">Image :
+            {{ form_widget(form.imageURL,{ attr: { class : "text-xl " }}) }}
+            {{  form_widget(form.parcourir, { attr: { class : "w-30 h-10 bg-white text-black  rounded border border-gray-300"}}) }}
+        </div>
+        {{  form_widget( form.ajouter, { attr: { class: "bg-green-500 hover:bg-green-600 px-6 py-2 rounded text-lg transition-colors cursor-pointer" }}) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}
